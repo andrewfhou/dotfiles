@@ -1,0 +1,7 @@
+[user]
+    email = andrewfhou@gmail.com
+    name = Andrew Hou
+[core]
+    editor = vim
+[push]
+    followTags = true
