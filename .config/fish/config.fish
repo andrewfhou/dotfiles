@@ -27,8 +27,10 @@ end
 
 funcsave fish_greeting
 funcsave fuck
-# ctf-tools: PATH setup
+
+# $PATH directories
 set -x PATH /home/mweepigeon/Software/ctf-tools/bin $PATH
+set -x PATH /home/mweepigeon/.cargo/bin $PATH
 
 # set sagemath alias
 function sage
