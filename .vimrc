@@ -71,8 +71,6 @@ match ErrorMsg /\t/ " error highlight tabs
 set list " show whitespace
 set showbreak=↪\
 set listchars=tab:→\ ,eol:¬,nbsp:⎵,trail:•,extends:⟩,precedes:⟨
-" other
-set scrolloff=7 "keep 7 lines around cursor
 
 " ruler column
 highlight ColorColumn ctermbg=0
@@ -80,7 +78,7 @@ let &colorcolumn="80,".join(range(120,120),",")
 " set colorcolumn=120
 
 " Cursor motion
-set scrolloff=3
+set scrolloff=7
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
