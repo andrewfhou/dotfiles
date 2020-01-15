@@ -74,7 +74,7 @@ match ErrorMsg /\t/
 
 " ruler column
 highlight ColorColumn ctermbg=0
-let &colorcolumn="80,".join(range(100,100),",")
+let &colorcolumn="80,".join(range(120,120),",")
 " set colorcolumn=120
 
 " Cursor motion
