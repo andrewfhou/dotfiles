@@ -78,7 +78,7 @@ let &colorcolumn="80,".join(range(120,120),",")
 " set colorcolumn=120
 
 " Cursor motion
-set scrolloff=7
+set scrolloff=12
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
