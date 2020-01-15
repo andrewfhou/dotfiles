@@ -23,8 +23,9 @@ set shell=/usr/bin/fish
 " ale
 " let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-\    '*': ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['google_java_format', 'uncrustify']
+\    '*':    ['remove_trailing_lines', 'trim_whitespace'],
+\    'java': ['google_java_format', 'uncrustify'],
+\    'c':    ['gcc']
 \}
 
 " supertab
@@ -62,15 +63,16 @@ set formatoptions=tcqrn1
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set autoindent
 set expandtab " replace tabs w/ spaces
-set noshiftround
-
-" more whitespace stuff
-set list
+match ErrorMsg '/\s\+$' " error highlight trailing whitespace
+match ErrorMsg /\t/ " error highlight tabs
+" whitespace chars
+set list " show whitespace
 set showbreak=↪\
 set listchars=tab:→\ ,eol:¬,nbsp:⎵,trail:•,extends:⟩,precedes:⟨
-match ErrorMsg '\s\+$'
-match ErrorMsg /\t/
+" other
+set scrolloff=7 "keep 7 lines around cursor
 
 " ruler column
 highlight ColorColumn ctermbg=0
@@ -103,7 +105,7 @@ set showcmd
 " Searching
 nnoremap / /\v
 vnoremap / /\v
-set hlsearch
+set hlsearch " highlight search results
 set incsearch
 set ignorecase
 set smartcase
@@ -129,7 +131,10 @@ endfu
 " activate with WP in command mode
 com! WP call WordProcessorMode()
 
-" Misc
+" disable bell, enable screen flash
 set visualbell
+set noerrorbells
+
+" set character encoding
 set encoding=utf-8
 
