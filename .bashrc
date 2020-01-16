@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -86,11 +86,6 @@ fi
 
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -126,13 +121,5 @@ eval $(thefuck --alias fuck --enable-experimental-instant-mode)
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# fortune | cowsay
-#  if [ -x /usr/games/cowsay -a -x /usr/games/fortune ]; then
-#      fortune | cowsay
-#  fi
-
-# CS 193 Stuff
-alias wttr="curl wttr.in"
-
-# ctf-tools: PATH setup
 export PATH=/home/mweepigeon/Software/ctf-tools/bin:$PATH
+
