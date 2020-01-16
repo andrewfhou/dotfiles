@@ -25,7 +25,7 @@ set shell=/usr/bin/fish
 let g:ale_fixers = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
 \    'java': ['google_java_format', 'uncrustify'],
-\    'c':    ['gcc']
+\    'c':    ['clang-tidy']
 \}
 
 " supertab
@@ -60,17 +60,19 @@ set modelines=0
 set wrap
 set textwidth=79
 set formatoptions=tcqrn1
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set expandtab " replace tabs w/ spaces
 match ErrorMsg '/\s\+$' " error highlight trailing whitespace
 match ErrorMsg /\t/ " error highlight tabs
 " whitespace chars
 set list " show whitespace
 set showbreak=↪\
 set listchars=tab:→\ ,eol:¬,nbsp:⎵,trail:•,extends:⟩,precedes:⟨
+" indentation
+set expandtab " replace tabs w/ spaces
+set autoindent
+set tabstop=4
+set shiftwidth=4
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
+autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
 
 " ruler column
 highlight ColorColumn ctermbg=0
