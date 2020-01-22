@@ -14,6 +14,11 @@ function fish_greeting
     fortune -a
 end
 
+# rsync backup command
+function rsync_backup
+    sudo rsync -aAXv --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /home/mweepigeon /mnt/backups
+end
+
 # THE FUCK
 function fuck -d "Correct your previous console command"
   set -l fucked_up_command $history[1]

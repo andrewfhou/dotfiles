@@ -20,12 +20,21 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shell=/usr/bin/fish
 
-" ale
-" let g:ale_fix_on_save = 1
+" ALE settings
+"
+" Configure Fixers
+let g:ale_fix_on_save = 0 " Let ALE fix on save
 let g:ale_fixers = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['google_java_format', 'uncrustify'],
-\    'c':    ['clang-tidy']
+\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
+\    'c':    ['uncrustify', 'clangtidy', 'gcc']
+\}
+
+" Configure linters
+let g:ale_linters = {
+\    '*':    ['remove_trailing_lines', 'trim_whitespace'],
+\    'java': ['google_java_format', 'uncrustify', 'javac', 'checkstyle'],
+\    'c':    ['uncrustify', 'clangtidy', 'gcc']
 \}
 
 " supertab
@@ -137,4 +146,3 @@ set noerrorbells
 
 " set character encoding
 set encoding=utf-8
-
