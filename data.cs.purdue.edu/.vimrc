@@ -33,7 +33,7 @@ let g:ale_fixers = {
 " Configure linters
 let g:ale_linters = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['google_java_format', 'uncrustify', 'javac', 'checkstyle'],
+\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],¬
 \    'c':    ['uncrustify', 'clangtidy', 'gcc']
 \}
 
