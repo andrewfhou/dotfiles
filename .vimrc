@@ -69,8 +69,7 @@ set modelines=0
 set wrap
 set textwidth=79
 set formatoptions=tcqrn1
-match ErrorMsg '/\s\+$' " error highlight trailing whitespace
-match ErrorMsg /\t/ " error highlight tabs
+match ErrorMsg /\s\+$\|\t/ " highlight illegal whitespace
 " whitespace chars
 set list " show whitespace
 set showbreak=↪\

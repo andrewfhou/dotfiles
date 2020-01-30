@@ -26,14 +26,14 @@ set shell=/usr/bin/fish
 let g:ale_fix_on_save = 0 " Let ALE fix on save
 let g:ale_fixers = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],¬
+\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
 \    'c':    ['uncrustify', 'clangtidy', 'gcc']
 \}
 
 " Configure linters
 let g:ale_linters = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],¬
+\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
 \    'c':    ['uncrustify', 'clangtidy', 'gcc']
 \}
 
@@ -75,8 +75,7 @@ set softtabstop=2
 set autoindent " indent code when going to next line
 set expandtab " replace tabs w/ spaces
 set noshiftround
-match ErrorMsg '\s\+$'
-match ErrorMsg /\t/
+match ErrorMsg /\s\+$\|\t/
 " show whitespace chars
 set list " show whitespace
 set showbreak=↪\
