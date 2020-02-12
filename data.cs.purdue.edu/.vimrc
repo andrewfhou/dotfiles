@@ -73,6 +73,7 @@ set tabstop=2 " CS240 2-space indent requirement
 set shiftwidth=2
 set softtabstop=2
 set autoindent " indent code when going to next line
+set smartindent
 set expandtab " replace tabs w/ spaces
 set noshiftround
 match ErrorMsg /\s\+$\|\t/
@@ -129,10 +130,11 @@ map <leader>q gqip
 
 " Word Processor Mode
 func! WordProcessorMode()
- setlocal textwidth=80
- setlocal smartindent
- setlocal spell spelllang=en_us
  setlocal noexpandtab
+ setlocal formatoptions=1
+ setlocal wrap
+ setlocal linebreak
+ setlocal spell spelllang=en_us
 endfu
 
 " activate with WP in command mode

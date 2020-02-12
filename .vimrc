@@ -77,6 +77,7 @@ set listchars=tab:→\ ,eol:¬,nbsp:⎵,trail:•,extends:⟩,precedes:⟨
 " indentation
 set expandtab " replace tabs w/ spaces
 set autoindent
+set smartindent
 set tabstop=4
 set shiftwidth=4
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
@@ -130,10 +131,11 @@ map <leader>q gqip
 
 " Word Processor Mode
 func! WordProcessorMode()
- setlocal textwidth=80
- setlocal smartindent
- setlocal spell spelllang=en_us
  setlocal noexpandtab
+ setlocal formatoptions=1
+ setlocal wrap
+ setlocal linebreak
+ setlocal spell spelllang=en_us
 endfu
 
 " activate with WP in command mode
