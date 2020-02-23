@@ -19,8 +19,6 @@ Plug 'eljohnso/ale-linter-eastwood' " For CS 240
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set shell=/usr/bin/fish
-
 " ALE settings
 "
 " Configure fixers
