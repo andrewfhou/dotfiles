@@ -13,6 +13,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'ervandew/supertab'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'eljohnso/ale-linter-eastwood' " For CS 240
 
 " Initialize plugin system
 call plug#end()
@@ -22,19 +23,19 @@ set shell=/usr/bin/fish
 
 " ALE settings
 "
-" Configure Fixers
+" Configure fixers
 let g:ale_fix_on_save = 0 " Let ALE fix on save
 let g:ale_fixers = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
 \    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
-\    'c':    ['uncrustify', 'clangtidy', 'gcc']
+\    'c':    ['eastwood', 'uncrustify', 'clangtidy', 'gcc']
 \}
 
 " Configure linters
 let g:ale_linters = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
 \    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
-\    'c':    ['uncrustify', 'clangtidy', 'gcc']
+\    'c':    ['eastwood', 'uncrustify', 'clangtidy', 'gcc']
 \}
 
 " supertab
@@ -42,6 +43,10 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
+
+" man pages
+runtime! ftplugin/man.vim
+set keywordprg=:Man
 
 " themes & customization stuff
 set t_Co=256
@@ -76,7 +81,7 @@ set autoindent " indent code when going to next line
 set smartindent
 set expandtab " replace tabs w/ spaces
 set noshiftround
-match ErrorMsg /\s\+$\|\t/
+match ErrorMsg /\s\+$\|\t/ " highlight illegal whitespace
 " show whitespace chars
 set list " show whitespace
 set showbreak=↪\

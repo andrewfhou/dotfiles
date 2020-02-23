@@ -43,7 +43,7 @@ let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-"man pages
+" man pages
 runtime! ftplugin/man.vim
 set keywordprg=:Man
 
