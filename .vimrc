@@ -43,6 +43,10 @@ let g:SuperTabLongestEnhanced = 1
 let g:SuperTabLongestHighlight = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
 
+"man pages
+runtime! ftplugin/man.vim
+set keywordprg=:Man
+
 " themes & customization stuff
 set t_Co=256
 let g:airline_theme='nord'
