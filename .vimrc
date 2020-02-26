@@ -7,12 +7,12 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins
 Plug 'dense-analysis/ale'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ervandew/supertab'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'jez/vim-superman'
 
 " Initialize plugin system
 call plug#end()
@@ -47,13 +47,54 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 runtime! ftplugin/man.vim
 set keywordprg=:Man
 
+" lightline config
+set noshowmode
+
+let g:lightline = {
+    \ 'colorscheme': 'nord',
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' },
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ }
+    \ }
+
+let g:indentLine_char = '▏'
+
+let g:lightline.component_expand = {
+      \  'linter_checking': 'lightline#ale#checking',
+      \  'linter_warnings': 'lightline#ale#warnings',
+      \  'linter_errors': 'lightline#ale#errors',
+      \  'linter_ok': 'lightline#ale#ok',
+      \ }
+
+let g:lightline#ale#indicator_checking = 'Linting...'
+let g:lightline#ale#indicator_ok = '    OK    '
+
+let g:lightline.component_type = {
+      \     'linter_checking': 'okay',
+      \     'linter_warnings': 'warning',
+      \     'linter_errors': 'error',
+      \     'linter_ok': 'okay',
+      \ }
+
+let g:lightline.active = { 'right': [
+      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+      \              [ 'void' ],
+      \              [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'fileencoding', 'filetype' ]
+      \              ] }
+
 " themes & customization stuff
 set t_Co=256
-let g:airline_theme='nord'
 colorscheme nord
 
 set cursorline
-let g:airline_powerline_fonts = 1
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
 

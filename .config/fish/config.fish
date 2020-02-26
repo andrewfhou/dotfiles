@@ -36,6 +36,7 @@ funcsave fuck
 # $PATH directories
 set -x PATH /home/mweepigeon/Software/ctf-tools/bin $PATH
 set -x PATH /home/mweepigeon/.cargo/bin $PATH
+set -x PATH /home/mweepigeon/.vim/bundle/vim-superman/bin $PATH
 
 # set sagemath alias
 function sage
