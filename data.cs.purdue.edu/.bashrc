@@ -28,3 +28,7 @@ fi
 # Add cs240/bin to PATH
 export PATH=$PATH:~cs240/bin
 
+# vim-superman
+export PATH="$PATH:$HOME/.vim/bundle/vim-superman/bin"
+complete -o default -o nospace -F _man vman
+

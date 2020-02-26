@@ -7,12 +7,12 @@ call plug#begin('~/.vim/plugged')
 
 " Plugins
 Plug 'dense-analysis/ale'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'ervandew/supertab'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'jez/vim-superman'
 Plug 'eljohnso/ale-linter-eastwood' " For CS 240
 
 " Initialize plugin system
@@ -46,13 +46,16 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 runtime! ftplugin/man.vim
 set keywordprg=:Man
 
+" lightline config
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
+
 " themes & customization stuff
 set t_Co=256
-let g:airline_theme='deus'
 colorscheme nord
 
 set cursorline
-let g:airline_powerline_fonts = 1
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
 
