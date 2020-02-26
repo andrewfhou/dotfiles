@@ -39,12 +39,13 @@ let g:lightline = {
     \ 'separator': { 'left': '', 'right': '' },
     \ 'subseparator': { 'left': '', 'right': '' },
     \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+    \   'left':  [ [ 'mode', 'paste' ],
+    \              [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+    \   'right': [ [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ] ]
     \ },
     \ 'component_function': {
     \   'gitbranch': 'FugitiveHead'
-    \ }
+    \ },
     \ }
 
 let g:indentLine_char = '▏'
@@ -72,14 +73,6 @@ let g:lightline.component_type = {
       \     'linter_errors': 'error',
       \     'linter_ok': 'okay',
       \ }
-
-let g:lightline.active = { 'right': [
-      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
-      \              [ 'void' ],
-      \              [ 'lineinfo' ],
-      \              [ 'percent' ],
-      \              [ 'fileformat', 'fileencoding', 'filetype' ]
-      \              ] }
 
 " ALE settings
 " Configure Fixers
