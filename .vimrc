@@ -8,34 +8,18 @@ call plug#begin('~/.vim/plugged')
 " Plugins
 Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'maximbaz/lightline-ale'
 Plug 'ervandew/supertab'
-Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jez/vim-superman'
+Plug 'flazz/vim-colorschemes'
+Plug 'arcticicestudio/nord-vim'
 
 " Initialize plugin system
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shell=/usr/bin/fish
-
-" ALE settings
-"
-" Configure Fixers
-let g:ale_fix_on_save = 0 " Let ALE fix on save
-let g:ale_fixers = {
-\    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
-\    'c':    ['uncrustify', 'clangtidy', 'gcc']
-\}
-
-" Configure linters
-let g:ale_linters = {
-\    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
-\    'c':    ['uncrustify', 'clangtidy', 'gcc']
-\}
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -52,8 +36,8 @@ set noshowmode
 
 let g:lightline = {
     \ 'colorscheme': 'nord',
-    \ 'separator': { 'left': '', 'right': '' },
-    \ 'subseparator': { 'left': '', 'right': '' },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' },
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -64,6 +48,13 @@ let g:lightline = {
     \ }
 
 let g:indentLine_char = '▏'
+
+let g:lightline.tabline = {
+  \   'left': [ ['tabs'] ],
+  \   'right': [ ['close'] ]
+  \ }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
 
 let g:lightline.component_expand = {
       \  'linter_checking': 'lightline#ale#checking',
@@ -90,7 +81,23 @@ let g:lightline.active = { 'right': [
       \              [ 'fileformat', 'fileencoding', 'filetype' ]
       \              ] }
 
-" themes & customization stuff
+" ALE settings
+" Configure Fixers
+let g:ale_fix_on_save = 0 " Let ALE fix on save
+let g:ale_fixers = {
+\    '*':    ['remove_trailing_lines', 'trim_whitespace'],
+\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
+\    'c':    ['uncrustify', 'clangtidy', 'gcc']
+\}
+
+" Configure linters
+let g:ale_linters = {
+\    '*':    ['remove_trailing_lines', 'trim_whitespace'],
+\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
+\    'c':    ['uncrustify', 'clangtidy', 'gcc']
+\}
+
+" colorscheme
 set t_Co=256
 colorscheme nord
 

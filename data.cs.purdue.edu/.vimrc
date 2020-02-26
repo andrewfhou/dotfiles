@@ -18,7 +18,73 @@ Plug 'eljohnso/ale-linter-eastwood' " For CS 240
 " Initialize plugin system
 call plug#end()
 
+"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabLongestEnhanced = 1
+let g:SuperTabLongestHighlight = 1
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+" man pages
+runtime! ftplugin/man.vim
+set keywordprg=:Man
+
+" lightline config
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+      \ }
+" lightline config
+set noshowmode
+
+let g:lightline = {
+\ 'colorscheme': 'nord',
+\ 'separator': { 'left': '', 'right': '' },
+\ 'subseparator': { 'left': '', 'right': '' },
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+\ },
+\ 'component_function': {
+\   'gitbranch': 'FugitiveHead'
+\ }
+\ }
+
+let g:indentLine_char = '▏'
+
+let g:lightline.tabline = {
+\   'left': [ ['tabs'] ],
+\   'right': [ ['close'] ]
+\ }
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+
+let g:lightline.component_expand = {
+\  'linter_checking': 'lightline#ale#checking',
+\  'linter_warnings': 'lightline#ale#warnings',
+\  'linter_errors': 'lightline#ale#errors',
+\  'linter_ok': 'lightline#ale#ok',
+\ }
+
+let g:lightline#ale#indicator_checking = 'Linting...'
+let g:lightline#ale#indicator_ok = '    OK    '
+
+let g:lightline.component_type = {
+\     'linter_checking': 'okay',
+\     'linter_warnings': 'warning',
+\     'linter_errors': 'error',
+\     'linter_ok': 'okay',
+\ }
+
+let g:lightline.active = { 'right': [
+\              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ],
+\              [ 'void' ],
+\              [ 'lineinfo' ],
+\              [ 'percent' ],
+\              [ 'fileformat', 'fileencoding', 'filetype' ]
+\              ] }
+
 " ALE settings
 "
 " Configure fixers
@@ -35,21 +101,6 @@ let g:ale_linters = {
 \    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
 \    'c':    ['eastwood', 'uncrustify', 'clangtidy', 'gcc']
 \}
-
-" supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabClosePreviewOnPopupClose = 1
-
-" man pages
-runtime! ftplugin/man.vim
-set keywordprg=:Man
-
-" lightline config
-let g:lightline = {
-      \ 'colorscheme': 'nord',
-      \ }
 
 " themes & customization stuff
 set t_Co=256
