@@ -115,10 +115,12 @@ set wrap
 set textwidth=79
 set formatoptions=tcqrn1
 match ErrorMsg /\s\+$\|\t/ " highlight illegal whitespace
+
 " whitespace chars
 set list " show whitespace
 set showbreak=↪\
 set listchars=tab:→\ ,eol:¬,nbsp:⎵,trail:•,extends:⟩,precedes:⟨
+
 " indentation
 set expandtab " replace tabs w/ spaces
 set autoindent
@@ -133,30 +135,30 @@ highlight ColorColumn ctermbg=0
 let &colorcolumn="80,".join(range(120,120),",")
 " set colorcolumn=120
 
-" Cursor motion
+" cursor motion
 set scrolloff=12
 set backspace=indent,eol,start
 set matchpairs+=<:> " use % to jump between pairs
 runtime! macros/matchit.vim
 
-" Move up/down editor lines
+" move up/down editor lines
 nnoremap j gj
 nnoremap k gk
 
-" Allow hidden buffers
+" allow hidden buffers
 set hidden
 
-" Rendering
+" rendering
 set ttyfast
 
-" Status bar
+" status bar
 set laststatus=2
 
-" Last line
+" last line
 set showmode
 set showcmd
 
-" Searching
+" searching improvements
 nnoremap / /\v
 vnoremap / /\v
 set hlsearch " highlight search results
@@ -166,10 +168,10 @@ set smartcase
 set showmatch
 map <leader><space> :let @/=''<cr> " clear search
 
-" Formatting
+" formatting
 map <leader>q gqip
 
-" Word Processor Mode
+" word processor mode
 func! WordProcessorMode()
  setlocal noexpandtab
  setlocal formatoptions=1
@@ -187,3 +189,8 @@ set noerrorbells
 
 " set character encoding
 set encoding=utf-8
+
+" map F1 to escape
+map <F1> <Esc>
+imap <F1> <Esc>
+
