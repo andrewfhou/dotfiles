@@ -38,6 +38,14 @@ set -x PATH /home/mweepigeon/Software/ctf-tools/bin $PATH
 set -x PATH /home/mweepigeon/.cargo/bin $PATH
 set -x PATH /home/mweepigeon/.vim/bundle/vim-superman/bin $PATH
 
+# kdesrc-build initial setup
+# kdesrc-build directory path
+set -x PATH /home/mweepigeon/kde/src/kdesrc-build $PATH
+
+function kdesrc-run
+    source /home/mweepigeon/kde/build/$1/prefix.sh; and /home/mweepigeon/kde/usr/bin/$1
+end
+
 # set sagemath alias
 function sage
     /home/mweepigeon/Software/SageMath/sage
