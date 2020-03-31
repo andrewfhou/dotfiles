@@ -13,6 +13,7 @@ Plug 'ervandew/supertab'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'jez/vim-superman'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'eljohnso/ale-linter-eastwood' " For CS 240
 
 " Initialize plugin system
@@ -54,9 +55,10 @@ let g:lightline = {
 let g:indentLine_char = '▏'
 
 let g:lightline.tabline = {
-\   'left': [ ['tabs'] ],
+\   'left': [ ['buffers'] ],
 \   'right': [ ['close'] ]
 \ }
+
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 
@@ -65,6 +67,7 @@ let g:lightline.component_expand = {
 \  'linter_warnings': 'lightline#ale#warnings',
 \  'linter_errors': 'lightline#ale#errors',
 \  'linter_ok': 'lightline#ale#ok',
+\  'buffers': 'lightline#bufferline#buffers'
 \ }
 
 let g:lightline#ale#indicator_checking = 'Linting...'
@@ -75,6 +78,7 @@ let g:lightline.component_type = {
 \     'linter_warnings': 'warning',
 \     'linter_errors': 'error',
 \     'linter_ok': 'okay',
+\     'buffers': 'tabsel'
 \ }
 
 let g:lightline.active = { 'right': [
