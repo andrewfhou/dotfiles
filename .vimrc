@@ -108,6 +108,11 @@ set cursorcolumn
 " syntax highlighting
 syntax on
 
+" buffer navigaiton mappings
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
 " for plugins to load correctly
 filetype plugin indent on
 
@@ -203,28 +208,4 @@ set encoding=utf-8
 " map F1 to escape
 map <F1> <Esc>
 imap <F1> <Esc>
-
-" Cscope
-if has('cscope')
-  cs add /home/mweepigeon/cscope/cscope.out
-  set cscopetag cscopeverbose
-
-  if has('quickfix')
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
-  endif
-
-  cnoreabbrev <expr> csa
-    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs add'  : 'csa')
-  cnoreabbrev <expr> csf
-    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs find' : 'csf')
-  cnoreabbrev <expr> csk
-    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs kill' : 'csk')
-  cnoreabbrev <expr> csr
-    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs reset' : 'csr')
-  cnoreabbrev <expr> css
-    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs show' : 'css')
-  cnoreabbrev <expr> csh
-    \ ((getcmdtype() == ':' && getcmdpos() <= 4)? 'cs help' : 'csh')
-  command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
-endif
 

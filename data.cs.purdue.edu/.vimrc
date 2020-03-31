@@ -116,6 +116,11 @@ set cursorcolumn
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
 
+" buffer navigation mappings
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
 " syntax highlighting
 syntax on
 
