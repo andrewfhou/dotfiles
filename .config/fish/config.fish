@@ -14,6 +14,10 @@ function fish_greeting
     fortune -a
 end
 
+function gri
+    grep -ri $argv
+end
+
 # rsync backup command
 function rsync_backup
     sudo rsync -aAXv --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /home/mweepigeon /mnt/backups
@@ -43,7 +47,39 @@ set -x PATH /home/mweepigeon/.vim/bundle/vim-superman/bin $PATH
 set -x PATH /home/mweepigeon/kde/src/kdesrc-build $PATH
 
 function kdesrc-run
-    source /home/mweepigeon/kde/build/$1/prefix.sh; and /home/mweepigeon/kde/usr/bin/$1
+    source /home/mweepigeon/kde/build/$argv/prefix.sh; and /home/mweepigeon/kde/usr/bin/$argv
+end
+
+set NEVER_BUILD_LIST "Qt5 libdbusmenu-qt oxygen oxygen-icons5 kdegames akonadi telepathy-accounts-signon phonon kio-extras"
+set ONLY_BUILD_RARELY_LIST "modemmanager-qt networkmanager-qt bluez-qt khtml kdelibs4support gpgme"
+set PLASMA_PACKAGE_LIST "plasma-desktop plasma-workspace plasma-framework plasma-integration plasma-nm plasma-pa plasma-thunderbolt plasma-vault plasma-workspace-wallpapers kdeplasma-addons kwin systemsettings kscreen breeze discover kinfocenter kde-cli-tools print-manager plasma-sdk kirigami-gallery"
+
+function kb
+    set REPO (basename $PWD)
+    kdesrc-build $REPO --no-src --resume-from $REPO
+    set ERRORFILE ~/kde/src/log/latest/$REPO/error.log;
+    if test -f $ERRORFILE
+        cat $ERRORFILE
+    end
+end
+
+function kbdeps
+    set REPO (basename $PWD)
+    kdesrc-build $REPO --ignore-modules $NEVER_BUILD_LIST
+    set ERRORFILE ~/kde/src/log/latest/$REPO/error.log;
+    if test -f $ERRORFILE
+        cat $ERRORFILE
+    end
+end
+
+# BROKEN
+function build_plasma
+    kdesrc-build $PLASMA_PACKAGE_LIST --include-dependencies --ignore-modules $NEVER_BUILD_LIST $ONLY_BUILD_RARELY_LIST; and echo 'Installing Plasma Dev session...'; and sudo ~/kde/build/plasma-workspace/login-sessions/install-sessions.sh
+end
+
+# BROKEN
+function build_everything
+    kdesrc-build $PLASMA_PACKAGE_LIST dolphin konsole kate gwenview okular spectacle elisa kamoso kup --include-dependencies --ignore-modules $NEVER_BUILD_LIST; and sudo ~/kde/build/plasma-workspace/login-sessions/install-sessions.sh
 end
 
 # set sagemath alias

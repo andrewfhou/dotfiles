@@ -94,9 +94,11 @@ let g:ale_linters = {
 set t_Co=256
 colorscheme nord
 
-set cursorline
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
+
+set cursorline
+set cursorcolumn
 
 " syntax highlighting
 syntax on
@@ -106,6 +108,9 @@ filetype plugin indent on
 
 " line #s
 set number
+
+" hidden buffers
+set hidden
 
 " security stuff
 set modelines=0

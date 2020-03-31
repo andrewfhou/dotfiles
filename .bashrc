@@ -132,3 +132,38 @@ kdesrc-run ()
 {
   source "$HOME/kde/build/$1/prefix.sh" && "$HOME/kde/usr/bin/$1"
 }
+
+# Additional KDE macros
+# "kde build" just this repo
+function kb {
+    REPO=`basename $PWD`
+    kdesrc-build $REPO --no-src --resume-from $REPO
+    ERRORFILE=~/kde/src/log/latest/$REPO/error.log
+    if [ -f $ERRORFILE ]
+    then
+        cat $ERRORFILE
+        false
+    else
+        source ../../build/$REPO/prefix.sh
+    fi
+}
+# "kde build", this repo plus dependencies
+function kbdeps {
+    REPO=`basename $PWD`
+    kdesrc-build $REPO --ignore-modules $NEVER_BUILD_LIST
+    ERRORFILE=~/kde/src/log/latest/$REPO/error.log
+    if [ -f $ERRORFILE ]
+    then
+        cat $ERRORFILE
+    else
+        source ../../build/$REPO/prefix.sh
+    fi
+}
+
+NEVER_BUILD_LIST="Qt5 libdbusmenu-qt oxygen oxygen-icons5 kdegames akonadi telepathy-accounts-signon phonon kio-extras" # FIXME: remove kio-extras once kdsoap is installed
+ONLY_BUILD_RARELY_LIST="modemmanager-qt networkmanager-qt bluez-qt khtml kdelibs4support gpgme"
+PLASMA_PACKAGE_LIST="plasma-desktop plasma-workspace plasma-framework plasma-integration plasma-nm plasma-pa plasma-thunderbolt plasma-vault plasma-workspace-wallpapers kdeplasma-addons kwin systemsettings kscreen breeze discover kinfocenter kde-cli-tools print-manager plasma-sdk kirigami-gallery"
+
+alias build_plasma="kdesrc-build $PLASMA_PACKAGE_LIST --include-dependencies --ignore-modules $NEVER_BUILD_LIST $ONLY_BUILD_RARELY_LIST && echo 'Installing Plasma Dev session...' && sudo ~/kde/build/plasma-workspace/login-sessions/install-sessions.sh"
+alias build_everything="kdesrc-build $PLASMA_PACKAGE_LIST dolphin konsole kate gwenview okular spectacle elisa kamoso kup --include-dependencies --ignore-modules $NEVER_BUILD_LIST && sudo ~/kde/build/plasma-workspace/login-sessions/install-sessions.sh"
+
