@@ -61,6 +61,7 @@ let g:lightline.tabline = {
 
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
+let g:lightline#bufferline#show_number = 1
 
 let g:lightline.component_expand = {
 \  'linter_checking': 'lightline#ale#checking',
