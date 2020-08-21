@@ -209,3 +209,10 @@ set encoding=utf-8
 map <F1> <Esc>
 imap <F1> <Esc>
 
+" TODO/FIXME line highlighting
+augroup myTodo
+  autocmd!
+  autocmd Syntax * syntax match myTodo /\v\_.<(TODO|FIXME).*/hs=s+1 containedin=.*Comment
+augroup END
+
+highlight link myTodo Todo

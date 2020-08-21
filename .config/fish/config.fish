@@ -95,3 +95,8 @@ set -g theme_display_user yes
 set -g theme_display_hostname yes
 set -g theme_color_scheme base16-dark
 
+# op25 alias
+function op25
+    bash /home/mweepigeon/Software/op25/op25.sh
+end
+
