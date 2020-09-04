@@ -9,12 +9,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-fugitive'
 Plug 'jez/vim-superman'
 Plug 'flazz/vim-colorschemes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'mengelbrecht/lightline-bufferline'
+Plug 'lervag/vimtex'
+Plug 'ycm-core/YouCompleteMe'
 
 " Initialize plugin system
 call plug#end()
@@ -22,15 +23,15 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shell=/usr/bin/fish
 
-" supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabLongestEnhanced = 1
-let g:SuperTabLongestHighlight = 1
-let g:SuperTabClosePreviewOnPopupClose = 1
-
 " man pages
 runtime! ftplugin/man.vim
 set keywordprg=:Man
+
+" vimtex
+let g:tex_flavor = 'latex'
+
+" YCM
+nmap <c-k> <plug>(YCMHover)
 
 " lightline config
 set noshowmode
