@@ -18,9 +18,12 @@ function gri
     grep -ri $argv
 end
 
-# rsync backup command
+# rsync backup commands
 function rsync_backup
     sudo rsync -aAXv --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /home/mweepigeon /mnt/backups
+end
+function rsync_restore
+    sudo rsync -aAXv --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /mnt/backups /home/mweepigeon
 end
 
 # THE FUCK
