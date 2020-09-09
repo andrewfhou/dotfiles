@@ -16,6 +16,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Initialize plugin system
 call plug#end()
@@ -32,6 +33,10 @@ let g:tex_flavor = 'latex'
 
 " YCM
 nmap <c-k> <plug>(YCMHover)
+
+" gutentags
+let g:gutentags_project_root = ['.root'] " counts .pjroot as a root marker
+let g:gutentags_cache_dir = '~/.vim/gutentags' " where to store tag files
 
 " lightline config
 set noshowmode
@@ -119,6 +124,7 @@ filetype plugin indent on
 
 " line #s
 set number
+set relativenumber
 
 " hidden buffers
 set hidden
