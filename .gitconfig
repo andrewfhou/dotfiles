@@ -3,6 +3,7 @@
     name = Andrew Hou
 [core]
     editor = vim
+	excludesFile = ~/.gitignore
 [push]
     followTags = true
 [url "https://anongit.kde.org/"]
