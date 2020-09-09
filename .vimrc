@@ -90,7 +90,7 @@ let g:lightline.component_type = {
 let g:ale_fix_on_save = 0 " Let ALE fix on save
 let g:ale_fixers = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['uncrustify', 'javac', 'checkstyle', 'eclipselsp'],
+\    'java': ['uncrustify', 'google_java_format'],
 \    'c':    ['uncrustify', 'clangtidy', 'gcc']
 \}
 
