@@ -6,17 +6,20 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plug 'dense-analysis/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'tpope/vim-fugitive'
-Plug 'jez/vim-superman'
+Plug 'mengelbrecht/lightline-bufferline'
+
 Plug 'flazz/vim-colorschemes'
 Plug 'arcticicestudio/nord-vim'
-Plug 'mengelbrecht/lightline-bufferline'
+
+Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'jez/vim-superman'
 Plug 'lervag/vimtex'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'ludovicchabant/vim-gutentags'
 
 " Initialize plugin system
 call plug#end()
@@ -90,8 +93,8 @@ let g:lightline.component_type = {
 let g:ale_fix_on_save = 0 " Let ALE fix on save
 let g:ale_fixers = {
 \    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['uncrustify', 'google_java_format'],
-\    'c':    ['uncrustify', 'clangtidy', 'gcc']
+\    'java': ['remove_trailing_lines', 'trim_whitespace', 'uncrustify', 'google_java_format'],
+\    'c':    ['remove_trailing_lines', 'trim_whitespace', 'uncrustify', 'clangtidy', 'gcc']
 \}
 
 " Configure linters
