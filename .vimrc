@@ -132,6 +132,12 @@ set relativenumber
 " hidden buffers
 set hidden
 
+" cli completion
+set wildmenu
+
+" show partial commands
+set showcmd
+
 " security stuff
 set modelines=0
 
