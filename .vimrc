@@ -35,7 +35,8 @@ set keywordprg=:Man
 let g:tex_flavor = 'latex'
 
 " YCM
-nmap <c-k> <plug>(YCMHover)
+noremap <C-k< <plug>(YCMHover)
+let g:ycm_auto_hover = 'CursorHold'
 
 " gutentags
 let g:gutentags_project_root = ['.root'] " counts .pjroot as a root marker
