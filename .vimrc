@@ -93,9 +93,10 @@ let g:lightline.component_type = {
 " Configure Fixers
 let g:ale_fix_on_save = 0 " Let ALE fix on save
 let g:ale_fixers = {
-\    '*':    ['remove_trailing_lines', 'trim_whitespace'],
-\    'java': ['remove_trailing_lines', 'trim_whitespace', 'uncrustify', 'google_java_format'],
-\    'c':    ['remove_trailing_lines', 'trim_whitespace', 'uncrustify', 'clangtidy', 'gcc']
+\    '*':       ['remove_trailing_lines', 'trim_whitespace'],
+\    'java':    ['remove_trailing_lines', 'trim_whitespace', 'uncrustify', 'google_java_format'],
+\    'c':       ['remove_trailing_lines', 'trim_whitespace', 'uncrustify', 'clangtidy', 'gcc'],
+\    'haskell': ['remove_trailing_lines', 'trim_whitespace', 'uncrustify', 'stylish_haskell']
 \}
 
 " Configure linters
