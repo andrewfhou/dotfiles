@@ -14,12 +14,13 @@ Plug 'flazz/vim-colorschemes'
 Plug 'arcticicestudio/nord-vim'
 
 Plug 'dense-analysis/ale'
+Plug 'ycm-core/YouCompleteMe'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'jez/vim-superman'
 Plug 'lervag/vimtex'
-Plug 'ycm-core/YouCompleteMe'
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
 " Initialize plugin system
 call plug#end()
@@ -110,11 +111,14 @@ let g:ale_linters = {
 set t_Co=256
 colorscheme nord
 
-let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
+let g:nord_cursor_line_number_background = 1
 
 set cursorline
 set cursorcolumn
+
+" more frequent updates
+set updatetime=750
 
 " syntax highlighting
 syntax on
