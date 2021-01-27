@@ -20,10 +20,10 @@ end
 
 # rsync backup commands
 function rsync_backup
-    sudo rsync -aAXv --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /home/mweepigeon /mnt/backups
+    sudo rsync -aAX --info=progress2 --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /home/mweepigeon /mnt/backups
 end
 function rsync_restore
-    sudo rsync -aAXv --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /mnt/backups /home/mweepigeon
+    sudo rsync -aAX --info=progress2 --delete --exclude-from="/home/mweepigeon/Documents/backup_exclusion_list" /mnt/backups /home/mweepigeon
 end
 
 # THE FUCK
