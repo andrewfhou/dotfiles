@@ -42,6 +42,7 @@ funcsave fuck
 
 # $PATH directories
 set -x PATH /home/mweep/.vim/bundle/vim-superman/bin $PATH
+set -x PASSWORD_STORE_DIR /mnt/c/Users/Andrew\ Hou/.password-store/
 
 # set sagemath alias
 function sage

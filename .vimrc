@@ -38,7 +38,7 @@ let g:tex_flavor = 'latex'
 nmap <c-k> <plug>(YCMHover)
 
 " gutentags
-let g:gutentags_project_root = ['.root'] " counts .pjroot as a root marker
+let g:gutentags_project_root = ['.gt_root'] " custom root marker
 let g:gutentags_cache_dir = '~/.vim/gutentags' " where to store tag files
 
 " lightline config
