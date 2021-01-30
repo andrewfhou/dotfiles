@@ -10,15 +10,25 @@ Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'mengelbrecht/lightline-bufferline'
 
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'jez/vim-superman'
+
 Plug 'flazz/vim-colorschemes'
 Plug 'arcticicestudio/nord-vim'
 
+Plug 'preservim/nerdtree' |
+            \ Plug 'Xuyuanp/nerdtree-git-plugin' |
+            \ Plug 'ryanoasis/vim-devicons' |
+            \ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'preservim/tagbar'
+
+Plug 'ludovicchabant/vim-gutentags'
+
 Plug 'dense-analysis/ale'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-fugitive'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'jez/vim-superman'
+
 Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 
@@ -27,6 +37,21 @@ call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shell=/usr/bin/fish
+
+" NERDTree
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+            \ quit | endif
+
+let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" tagbar
+let g:tagbar_autoclose = 0
+" automatically open tagbar if launching vim with a supported file
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 
 " man pages
 runtime! ftplugin/man.vim
