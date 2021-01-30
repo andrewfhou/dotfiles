@@ -5,3 +5,6 @@
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+[user]
+	name = Andrew Hou
+	email = andrewfhou@gmail.com
