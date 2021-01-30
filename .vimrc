@@ -50,8 +50,8 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " tagbar
 let g:tagbar_autoclose = 0
-" automatically open tagbar
-autocmd VimEnter * nested :TagbarOpen
+" automatically open tagbar in supported files
+autocmd FileType * nested :call tagbar#autoopen(0)
 
 " man pages
 runtime! ftplugin/man.vim
