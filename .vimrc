@@ -38,6 +38,9 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shell=/usr/bin/fish
 
+" for plugins to load correctly
+filetype plugin indent on
+
 " NERDTree
 " Start NERDTree. If a file is specified, move the cursor to its window.
 autocmd StdinReadPre * let s:std_in=1
@@ -140,26 +143,13 @@ colorscheme nord
 let g:nord_cursor_line_number_background = 1
 let g:nord_italic_comments = 1
 
-set cursorline
-set cursorcolumn
-
 " syntax highlighting
 syntax on
 
-" buffer navigaiton mappings
+" buffer navigation mappings
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
-
-" for plugins to load correctly
-filetype plugin indent on
-
-" line #s
-set number
-set relativenumber
-
-" hidden buffers
-set hidden
 
 " cli completion
 set wildmenu
@@ -190,10 +180,17 @@ set shiftwidth=4
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
 
+" line #s
+set number
+set relativenumber
+
+# highlight row/column cursor is on
+set cursorline
+set cursorcolumn
+
 " ruler column
 highlight ColorColumn ctermbg=0
 let &colorcolumn="80,".join(range(120,120),",")
-" set colorcolumn=120
 
 " cursor motion
 set scrolloff=12
@@ -250,10 +247,6 @@ set noerrorbells
 " set character encoding
 set encoding=utf-8
 
-" map F1 to escape
-map <F1> <Esc>
-imap <F1> <Esc>
-
 " TODO/FIXME line highlighting
 augroup myTodo
   autocmd!
@@ -261,3 +254,4 @@ augroup myTodo
 augroup END
 
 highlight link myTodo Todo
+
