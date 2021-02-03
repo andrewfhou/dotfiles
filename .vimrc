@@ -151,7 +151,7 @@ set updatetime=750
 " syntax highlighting
 syntax on
 
-" buffer navigaiton mappings
+" buffer navigation mappings
 map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
