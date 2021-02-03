@@ -157,6 +157,9 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gd :bd<cr>
 
+" more frequent updates
+set updatetime=750
+
 " syntax highlighting
 syntax on
 
@@ -178,8 +181,8 @@ set textwidth=79
 set formatoptions=tcqrn1
 set tabstop=4
 set shiftwidth=4
-autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
-autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType java setlocal expandtab tabstop=4 shiftwidth=4
+autocmd FileType c setlocal expandtab tabstop=2 shiftwidth=2
 set autoindent " indent code when going to next line
 set smartindent
 set expandtab " replace tabs w/ spaces
