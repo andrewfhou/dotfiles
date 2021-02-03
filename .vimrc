@@ -130,6 +130,9 @@ let g:ale_linters = {
 \    'c':    ['uncrustify', 'clangtidy', 'gcc']
 \}
 
+" ensure editorconfig works with fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " colorscheme
 set t_Co=256
 colorscheme nord
