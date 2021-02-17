@@ -184,7 +184,7 @@ autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
 set number
 set relativenumber
 
-# highlight row/column cursor is on
+" highlight cursor row and col
 set cursorline
 set cursorcolumn
 
