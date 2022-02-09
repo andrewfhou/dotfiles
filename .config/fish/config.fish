@@ -1,8 +1,8 @@
 set -g theme_title_use_abbreviated_path no
 set -g theme_complete_path yes
 set -gx EDITOR vim
-
-# set PATH /snap/bin $PATH
+set -gx WINEARCH win32
+set -gx WINEPREFIX ~/.wine32
 
 thefuck --alias | source
 
@@ -41,9 +41,25 @@ funcsave fish_greeting
 funcsave fuck
 
 # $PATH directories
+
 set -x PATH /home/mweepigeon/Software/ctf-tools/bin $PATH
 set -x PATH /home/mweepigeon/.cargo/bin $PATH
 set -x PATH /home/mweepigeon/.vim/bundle/vim-superman/bin $PATH
+
+# cs 352 stuff
+
+# >>> JVM installed by coursier >>>
+set -x JAVA_HOME /home/mweepigeon/.cache/coursier/jvm/adopt@1.8.0-292
+set -x PATH /home/mweepigeon/.cache/coursier/jvm/adopt@1.8.0-292/bin $PATH
+# <<< JVM installed by coursier <<<
+
+# >>> coursier install directory >>>
+set -x PATH /home/mweepigeon/.local/share/coursier/bin $PATH
+# <<< coursier install directory <<<
+
+set -x PATH /home/mweepigeon/.local/share/coursier/bin $PATH
+
+# end cs 352 stuff
 
 # kdesrc-build initial setup
 # kdesrc-build directory path
@@ -103,3 +119,7 @@ function op25
     bash /home/mweepigeon/Software/op25/op25.sh
 end
 
+# nvim alias
+alias vim='nvim'
+alias vimdiff='nvim -d'
+alias oldvim='\vim'
