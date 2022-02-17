@@ -355,7 +355,7 @@ set expandtab " replace tabs w/ spaces
 set autoindent
 set smartindent
 set tabstop=2
-set shiftwidth=
+set shiftwidth=2
 
 autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType c setlocal tabstop=2 shiftwidth=2 expandtab
