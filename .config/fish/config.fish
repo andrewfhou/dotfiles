@@ -8,6 +8,7 @@ set -U fish_greeting ""
 # set dotfiles alias
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
+# set grep -ri alias
 function gri
     grep -ri $argv
 end
@@ -23,12 +24,15 @@ function fuck -d "Correct your previous console command"
   end
 end
 
-# BOBTHEFISH SETTINGS
-set -g theme_display_user yes
-set -g theme_display_hostname yes
-set -g theme_color_scheme base16-dark
-
-# nvim alias
+# set nvim alias
 alias vim='nvim'
 alias vimdiff='nvim -d'
 alias oldvim='\vim'
+
+# ruby gem installation path
+set -gx GEM_HOME $HOME/gems
+
+starship init fish | source
+
+# Added by `rbenv init` on Wed Aug 12 02:26:48 PM EDT 2026
+status --is-interactive; and rbenv init - --no-rehash fish | source
